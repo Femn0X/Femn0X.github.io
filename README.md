@@ -1,6 +1,6 @@
 # ✦ Femn0X — Portfolio
 
-Personal portfolio site built with **Vue 3** and **Vite**. Fully static — no server-side code — designed for deployment on GitHub Pages or any static host.
+Showcase portfolio site built with **Vue 3** and **Vite**. Fully static — no server-side code — designed for deployment on GitHub Pages or any static host.
 
 **Live:** [femn0x.github.io](https://femn0x.github.io/dist/index.html)  
 **Author:** Luca Winecker ([@Femn0X](https://github.com/Femn0X))  
