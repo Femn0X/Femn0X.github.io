@@ -19,8 +19,8 @@
         Based somewhere cool, working everywhere.
       </p>
       <div class="hero-cta" ref="ctaEl">
-        <a href="#projects" class="btn-primary">View Work</a>
-        <a href="#contact" class="btn-ghost">Get in Touch →</a>
+        <button class="btn-primary" @click="scrollTo('projects')">View Work</button>
+        <button class="btn-ghost" @click="scrollTo('contact')">Get in Touch →</button>
       </div>
     </div>
     <div class="hero-scroll">
@@ -48,6 +48,10 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
+
+function scrollTo(id) {
+  document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 const displayProjects = ref(0)
 const displayYears = ref(0)
@@ -196,6 +200,8 @@ onMounted(() => {
   padding: 0.9rem 2rem;
   border-radius: 4px;
   font-weight: 500;
+  border: none;
+  cursor: pointer;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 .btn-primary:hover {
@@ -207,6 +213,9 @@ onMounted(() => {
   font-size: 0.8rem;
   letter-spacing: 0.08em;
   color: var(--text-muted);
+  background: none;
+  border: none;
+  cursor: pointer;
   transition: color 0.2s;
 }
 .btn-ghost:hover { color: var(--text); }

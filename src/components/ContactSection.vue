@@ -53,7 +53,7 @@
     <div class="contact-bottom">
       <p class="footer-text">Built by Femn0X · Vue 3 + Vite · {{ new Date().getFullYear() }}</p>
       <div class="footer-links">
-        <a href="#hero">Back to top ↑</a>
+        <button class="back-top" @click="scrollToTop">Back to top ↑</button>
       </div>
     </div>
   </section>
@@ -61,6 +61,10 @@
 
 <script setup>
 import { ref, reactive, onMounted, onUnmounted } from 'vue'
+
+function scrollToTop() {
+  document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+}
 
 const section = ref(null)
 const isVisible = ref(false)
@@ -219,12 +223,12 @@ input::placeholder, textarea::placeholder { color: var(--text-muted); opacity: 0
   font-family: var(--font-mono); font-size: 0.72rem;
   color: var(--text-muted); letter-spacing: 0.08em;
 }
-.footer-links a {
+.footer-links a, .back-top {
   font-family: var(--font-mono); font-size: 0.72rem;
   color: var(--text-muted); letter-spacing: 0.08em;
-  transition: color 0.2s;
+  transition: color 0.2s; background: none; border: none; cursor: pointer;
 }
-.footer-links a:hover { color: var(--accent); }
+.footer-links a:hover, .back-top:hover { color: var(--accent); }
 
 @media (max-width: 768px) {
   .contact-grid { grid-template-columns: 1fr; gap: 3rem; }

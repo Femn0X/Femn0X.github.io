@@ -40,13 +40,24 @@
           </div>
         </article>
       </div>
+
+      <!-- More projects button -->
+      <div class="more-wrap" :class="{ visible: isVisible }">
+        <a href="https://github.com/Femn0X" target="_blank" class="more-btn">
+          <span class="more-btn-inner">
+            <span>More Projects on GitHub</span>
+            <span class="more-icon">↗</span>
+          </span>
+          <span class="more-btn-bg"></span>
+        </a>
+        <p class="more-hint">Updating with real projects soon — things like Payjar and more.</p>
+      </div>
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { RouterLink } from 'vue-router'
 import { projects } from '../data/projects.js'
 
 const section = ref(null)
@@ -133,6 +144,50 @@ onUnmounted(() => observer?.disconnect())
   color: var(--text-muted); transition: color 0.2s;
 }
 .read-more:hover { color: var(--accent); }
+
+/* More projects button */
+.more-wrap {
+  margin-top: 3rem;
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.7s 0.5s ease, transform 0.7s 0.5s ease;
+}
+.more-wrap.visible { opacity: 1; transform: translateY(0); }
+
+.more-btn {
+  position: relative; overflow: hidden;
+  display: inline-flex; align-items: center;
+  border: 1px solid var(--border); border-radius: 6px;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+.more-btn:hover { border-color: var(--accent); }
+.more-btn-inner {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; gap: 0.75rem;
+  font-family: var(--font-mono); font-size: 0.82rem;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  color: var(--text); transition: color 0.3s;
+}
+.more-icon {
+  font-size: 1rem; transition: transform 0.3s;
+}
+.more-btn:hover .more-icon { transform: translate(3px, -3px); }
+.more-btn-bg {
+  position: absolute; inset: 0;
+  background: var(--accent);
+  transform: translateY(100%);
+  transition: transform 0.35s cubic-bezier(.16,1,.3,1);
+}
+.more-btn:hover .more-btn-bg { transform: translateY(0); }
+.more-btn:hover .more-btn-inner { color: #000; }
+
+.more-hint {
+  font-family: var(--font-mono); font-size: 0.7rem;
+  letter-spacing: 0.06em; color: var(--text-muted);
+  text-align: center;
+}
 
 @media (max-width: 768px) { .projects-list { grid-template-columns: 1fr; } }
 </style>
