@@ -2,7 +2,7 @@
 
 Personal portfolio site built with **Vue 3** and **Vite**. Fully static — no server-side code — designed for deployment on GitHub Pages or any static host.
 
-**Live:** [femn0x.github.io](https://femn0x.github.io)  
+**Live:** [femn0x.github.io](https://femn0x.github.io/dist/index.html)  
 **Author:** Luca Winecker ([@Femn0X](https://github.com/Femn0X))  
 **Email:** lucawinecker@gmail.com
 
@@ -54,40 +54,6 @@ src/
 
 - Node.js 18+
 - npm 9+
-
-### Install & Run
-
-```bash
-# Install dependencies
-npm install
-
-# Start dev server
-npm run dev
-
-# Build for production
-npm run build
-```
-
-The built output lands in `dist/`.
-
----
-
-## Deploying to GitHub Pages
-
-### Option A — Upload dist/ manually
-
-1. Run `npm run build`
-2. Push the contents of `dist/` to your `gh-pages` branch (or repo root for `username.github.io` repos)
-
-### Option B — GitHub Actions (recommended)
-
-A GitHub Actions workflow is already included in `.github/workflows/deploy.yml`. It will build the site and deploy the `dist/` output to the `gh-pages` branch whenever you push to `main`.
-
-If GitHub Pages is not already configured automatically, open your repo settings and set the Pages source to the `gh-pages` branch.
-
-> **Why hash mode?** Vue Router uses `createWebHashHistory()` so all routes work without server configuration. URLs look like `femn0x.github.io/#/project/velocity-dashboard` — GitHub Pages handles this perfectly.
-
----
 
 ## Adding Your Own Projects
 
