@@ -5,7 +5,7 @@ import path from 'path'
 export default defineConfig({
   // For femn0x.github.io (user/org site) base is '/'
   // If it were a project site (femn0x.github.io/repo) it would be '/repo/'
-  base: '/',
+  base: './',
   plugins: [vue()],
   resolve: {
     alias: {
